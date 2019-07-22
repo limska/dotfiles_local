@@ -11,11 +11,6 @@ export VISUAL="gvim"
 export MIRROR_HOME="/starmirror"
 
 #==============================================================================
-# PKI card
-#==============================================================================
-export NSS_DEFAULT_DB_TYPE=sql
-
-#==============================================================================
 # MIRROR GIT
 #==============================================================================
 export PATH="$MIRROR_HOME/git/latest/linux-x86_64/bin:$PATH"
@@ -27,7 +22,7 @@ export GIT_TEMPLATE_DIR="$MIRROR_HOME/git/latest/linux-x86_64/share/git-core/tem
 #==============================================================================
 # DEV
 #==============================================================================
-export DEV_HOME="$HOME/dev"
+export DEV_HOME="$HOME/src/starccm/dev"
 export PATH="$DEV_HOME/star/:$PATH"
 export PATH="$DEV_HOME/star/bin/:$PATH"
 export PATH="$DEV_HOME/startest/bin/:$PATH"

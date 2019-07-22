@@ -3,7 +3,7 @@ source $HOME/dotfiles/.vimrc
 autocmd BufNewFile,BufReadPost *.h,*.cpp call CppSettings()
 
 function CppSettings()
-    set makeprg=cmake_star\ -k\ -dut
+    set makeprg=cmake_star\ -dev\ -dut\ -k
     set shiftwidth=2
     set tabstop=2
     set softtabstop=2
