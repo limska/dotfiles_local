@@ -22,6 +22,8 @@ alias makeall="makejava; makestar"
 
 alias -g '¬O'="xdg-open"
 
+alias setdev=". ~/bin/setdev"
+
 star ()
 {
     source /install/STAR-CCMP/set_starccm+ $*
