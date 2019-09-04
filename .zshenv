@@ -38,6 +38,12 @@ export JAVA_HOME="/usr/bin/"
 export PATH="/opt/google/chrome/:$PATH"
 
 #==============================================================================
+# VIM
+#==============================================================================
+export PATH="$HOME/software/vim/bin:$PATH"
+export LD_LIBRARY_PATH="/u/cd8rit/src/starccm/dev/compilers/linux-x86_64-2.10.1/gnu7.1.0/lib64:${LD_LIBRARY_PATH}"
+
+#==============================================================================
 # GET LOCALIZATION VARIABLES FROM LOCALE.CONF IF IT EXISTS
 #==============================================================================
 [[ -f /etc/locale.conf ]] && source /etc/locale.conf
@@ -76,3 +82,9 @@ export PATH="/tpapps/gPROMS/ProcessBuilder_1.3.1.55087/bin":$PATH
 export WAVE_HOME="/tpapps/WAVE/2017.1/"
 export PATH="$WAVE_HOME/bin/:$PATH"
 export PATH_TO_WAVE_LIBRARIES="$WAVE_HOME/2017.1/Common/Libs/lnx_x23.64" # for startest
+
+#==============================================================================
+# Ruby
+#==============================================================================
+export RUBY_HOME="$HOME/software/ruby/current"
+export PATH="${RUBY_HOME}/bin/:$PATH"

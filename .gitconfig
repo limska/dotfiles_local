@@ -49,6 +49,7 @@
 # of merged changes to the automatically generated merge commit
 [merge]
         log = true
+	tool = vimdiff
 # when pushing push to tracking branch if one exist 
 [push]
         default = tracking
@@ -73,8 +74,8 @@
         date = local
 
 [diff]
-	external = /users/lonli6009a/sava/bin/git-diff-wrapper.sh
-	tool = meld
+#	external = /u/cd8rit/bin/git-diff-wrapper.sh
+	tool = vimdiff
 [pull]
 	rebase = true
 [filter "lfs"]
@@ -83,3 +84,5 @@
 	required = true
 [http]
 	postBuffer = 1048576000
+[difftool]
+	prompt = false
