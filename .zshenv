@@ -14,7 +14,6 @@ export MIRROR_HOME="/starmirror"
 # MIRROR GIT
 #==============================================================================
 export PATH="$MIRROR_HOME/git/latest/linux-x86_64/bin:$PATH"
-export PATH="$MIRROR_HOME/python/latest/linux-x86_64/bin:$PATH"
 export MANPATH="$MIRROR_HOME/git/latest/linux-x86_64/share/man:$MANPATH"
 export GIT_EXEC_PATH="$MIRROR_HOME/git/latest/linux-x86_64/libexec/git-core"
 export GIT_TEMPLATE_DIR="$MIRROR_HOME/git/latest/linux-x86_64/share/git-core/templates"
@@ -23,9 +22,6 @@ export GIT_TEMPLATE_DIR="$MIRROR_HOME/git/latest/linux-x86_64/share/git-core/tem
 # DEV
 #==============================================================================
 export DEV_HOME="$HOME/src/starccm/dev"
-export PATH="$DEV_HOME/star/:$PATH"
-export PATH="$DEV_HOME/star/bin/:$PATH"
-export PATH="$DEV_HOME/startest/bin/:$PATH"
 
 #==============================================================================
 # JAVA SETUP
@@ -88,3 +84,15 @@ export PATH_TO_WAVE_LIBRARIES="$WAVE_HOME/2017.1/Common/Libs/lnx_x23.64" # for s
 #==============================================================================
 export RUBY_HOME="$HOME/software/ruby/current"
 export PATH="${RUBY_HOME}/bin/:$PATH"
+
+#==============================================================================
+# Python2
+#==============================================================================
+export PYTHON2_HOME="$HOME/software/python/2.7.17"
+export PATH="${PYTHON2_HOME}/bin/:$PATH"
+
+#==============================================================================
+# Python3
+#==============================================================================
+export PYTHON3_HOME="$HOME/software/python/3.7.5"
+export PATH="${PYTHON3_HOME}/bin/:$PATH"

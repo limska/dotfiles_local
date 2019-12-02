@@ -1,8 +1,5 @@
 #! /bin/zsh
 
-# re-source zshenv, useful for testing changes without logging out and in
-source $HOME/.zshenv
-
 source $HOME/dotfiles/.zshrc
 
 alias startest="startest -starout \
