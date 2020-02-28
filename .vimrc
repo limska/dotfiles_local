@@ -17,3 +17,15 @@ function JavaSettings()
     set tabstop=4
     set softtabstop=4
 endfunction
+
+autocmd BufNewFile,BufReadPost *.py call PythonSettings()
+
+function PythonSettings()
+    set makeprg=python3
+    set shiftwidth=4
+    set tabstop=4
+    set softtabstop=4
+    set expandtab
+    set autoindent
+    syntax on
+endfunction

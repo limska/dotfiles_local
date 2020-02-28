@@ -31,7 +31,7 @@ export JAVA_HOME="/usr/bin/"
 #==============================================================================
 # PATH ADDITIONS
 #==============================================================================
-export PATH="/opt/google/chrome/:$PATH"
+export PATH="/opt/google/chrome:$PATH"
 
 #==============================================================================
 # VIM
@@ -102,9 +102,31 @@ export PATH="${NODE_HOME}/bin/:$PATH"
 #==============================================================================
 export PYTHON2_HOME="$HOME/software/python/2.7.17"
 export PATH="${PYTHON2_HOME}/bin/:$PATH"
+export LD_LIBRARY_PATH="${PYTHON2_HOME}/lib:${LD_LIBRARY_PATH}"
 
 #==============================================================================
 # Python3
 #==============================================================================
 export PYTHON3_HOME="$HOME/software/python/3.7.5"
-export PATH="${PYTHON3_HOME}/bin/:$PATH"
+export OPENSSL_HOME="$HOME/software/openssl/1.1.1d"
+export PATH="${PYTHON3_HOME}/bin:${OPENSSL_HOME}/bin:$PATH"
+export LD_LIBRARY_PATH="${PYTHON3_HOME}/lib:${OPENSSL_HOME}/lib:${LD_LIBRARY_PATH}"
+
+#==============================================================================
+# HDF5View
+#==============================================================================
+export HDF5VIEW_HOME="$HOME/software/HDFView-3.1.0-Linux/HDFView/3.1.0"
+export PATH="${HDF5VIEW_HOME}:$PATH"
+
+#==============================================================================
+# CGNSTools
+#==============================================================================
+export CGNSTOOLS_HOME="$HOME/software/CGNS-3.2.1"
+export PATH="${CGNSTOOLS_HOME}/bin:$PATH"
+
+#==============================================================================
+# Firefox
+#==============================================================================
+export FIREFOX_HOME="$HOME/software/firefox"
+export PATH="${FIREFOX_HOME}:$PATH"
+
