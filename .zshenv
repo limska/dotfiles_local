@@ -8,15 +8,19 @@ export VISUAL="gvim"
 #==============================================================================
 # MIRROR
 #==============================================================================
-export MIRROR_HOME="/starmirror"
+if [ -d "$MIRROR_HOME" ] ; then
+  export MIRROR_HOME="/starmirror"
+fi
 
 #==============================================================================
-# MIRROR GIT
+# GIT
 #==============================================================================
-export PATH="$MIRROR_HOME/git/latest/linux-x86_64/bin:$PATH"
-export MANPATH="$MIRROR_HOME/git/latest/linux-x86_64/share/man:$MANPATH"
-export GIT_EXEC_PATH="$MIRROR_HOME/git/latest/linux-x86_64/libexec/git-core"
-export GIT_TEMPLATE_DIR="$MIRROR_HOME/git/latest/linux-x86_64/share/git-core/templates"
+if [ -d "$MIRROR_HOME" ] ; then
+  export PATH="$MIRROR_HOME/git/latest/linux-x86_64/bin:$PATH"
+  export MANPATH="$MIRROR_HOME/git/latest/linux-x86_64/share/man:$MANPATH"
+  export GIT_EXEC_PATH="$MIRROR_HOME/git/latest/linux-x86_64/libexec/git-core"
+  export GIT_TEMPLATE_DIR="$MIRROR_HOME/git/latest/linux-x86_64/share/git-core/templates"
+fi
 
 #==============================================================================
 # DEV
