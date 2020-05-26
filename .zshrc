@@ -2,6 +2,8 @@
 
 source $HOME/dotfiles/.zshrc
 
+export DISPLAY=:0.0
+
 alias startest="startest -starout \
                          -jvmargs -Dabaqus.exe=/tpapps/abaqus/2017/CAE/2017/linux_a64/code/bin/ABQLauncher \
                          -jvmargs -Dabaqus.library=/tpapps/abaqus/2017/V6R2017x/linux_a64/code/bin/libABQSMACseModules.so \
