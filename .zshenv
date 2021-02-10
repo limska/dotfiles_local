@@ -15,17 +15,19 @@ fi
 #==============================================================================
 # GIT
 #==============================================================================
-if [ -d "$MIRROR_HOME" ] ; then
-  export PATH="$MIRROR_HOME/git/latest/linux-x86_64/bin:$PATH"
-  export MANPATH="$MIRROR_HOME/git/latest/linux-x86_64/share/man:$MANPATH"
-  export GIT_EXEC_PATH="$MIRROR_HOME/git/latest/linux-x86_64/libexec/git-core"
-  export GIT_TEMPLATE_DIR="$MIRROR_HOME/git/latest/linux-x86_64/share/git-core/templates"
+GITHOME="$HOME/software/git/2.28.0"
+if [ -d "$GITHOME" ] ; then
+  export PATH="$GITHOME/bin:$PATH"
+  export MANPATH="$iGITHOME/man:$MANPATH"
+  export GIT_EXEC_PATH="$GITHOME/libexec/git-core"
+  export GIT_TEMPLATE_DIR="$GITHOME/share/git-core/templates"
 fi
 
 #==============================================================================
 # DEV
 #==============================================================================
 export DEV_HOME="$HOME/src/starccm/dev"
+export PATH="$DEV_HOME/star/bin:$PATH"
 
 #==============================================================================
 # JAVA SETUP
@@ -47,6 +49,11 @@ export LD_LIBRARY_PATH="/u/cd8rit/src/starccm/dev/compilers/linux-x86_64-2.10.1/
 # GET LOCALIZATION VARIABLES FROM LOCALE.CONF IF IT EXISTS
 #==============================================================================
 [[ -f /etc/locale.conf ]] && source /etc/locale.conf
+
+#==============================================================================
+# VSCode
+#==============================================================================
+export PATH="$HOME/software/vscode/code/bin:$PATH"
 
 #==============================================================================
 # AMESIM

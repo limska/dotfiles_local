@@ -9,7 +9,7 @@ alias startest="startest -starout \
                          -jvmargs -Dabaqus.library=/tpapps/abaqus/2017/V6R2017x/linux_a64/code/bin/libABQSMACseModules.so \
                          -ldlibpath /tpapps/AMESim/v17/Amesim/lnx_x64/"
 
-alias starccm+="starccm+ -ldlibpath /tpapps/AMESim/v17/Amesim/lnx_x64/"
+alias starccm_amesim="starccm+ -ldlibpath /tpapps/AMESim/v17/Amesim/lnx_x64/"
 alias stardebugclient="starccm+ -jvmargs \"-Dsun.awt.disablegrab=true -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8765\""
 
 alias g++mirror="/users/ccm+dev/compilers/linux-x86_64-2.10.1/gnu6.3.0/bin/g++"
