@@ -141,3 +141,12 @@ export PATH="${CGNSTOOLS_HOME}/bin:$PATH"
 export FIREFOX_HOME="$HOME/software/firefox"
 export PATH="${FIREFOX_HOME}:$PATH"
 
+#==============================================================================
+# MTS
+#==============================================================================
+MTSHOME="$HOME/src/starccm/dev/mts/build/install/mts"
+if [ -d "$MTSHOME" ] ; then
+  JAVA_HOME=$HOME/src/starccm/dev/jdk/linux-x86_64/latest
+  alias mts=$MTSHOME/bin/mts
+fi
+
