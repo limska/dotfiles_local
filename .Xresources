@@ -1,6 +1,6 @@
 ! Use a nice truetype font and size by default... 
 xterm*faceName: DejaVu Sans Mono Book
-xterm*faceSize: 11
+xterm*faceSize: 14
 
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 xterm*loginshell: true
@@ -37,3 +37,8 @@ xterm*ScrollBar: true
 
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
+
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+

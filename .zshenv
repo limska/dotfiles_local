@@ -18,9 +18,18 @@ fi
 GITHOME="$HOME/software/git/2.28.0"
 if [ -d "$GITHOME" ] ; then
   export PATH="$GITHOME/bin:$PATH"
-  export MANPATH="$iGITHOME/man:$MANPATH"
+  export MANPATH="$GITHOME/man:$MANPATH"
   export GIT_EXEC_PATH="$GITHOME/libexec/git-core"
   export GIT_TEMPLATE_DIR="$GITHOME/share/git-core/templates"
+fi
+
+#==============================================================================
+# CMake
+#==============================================================================
+CMAKEHOME="$HOME/software/cmake"
+if [ -d "$CMAKEHOME" ] ; then
+  export PATH="$CMAKEHOME/bin:$PATH"
+  export MANPATH="$CMAKEHOME/man:$MANPATH"
 fi
 
 #==============================================================================
@@ -150,3 +159,8 @@ if [ -d "$MTSHOME" ] ; then
   alias mts=$MTSHOME/bin/mts
 fi
 
+
+#==============================================================================
+# NixOS
+#==============================================================================
+if [ -e /home/sava/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sava/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
