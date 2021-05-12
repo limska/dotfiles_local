@@ -52,7 +52,10 @@ export PATH="/opt/google/chrome:$PATH"
 # VIM
 #==============================================================================
 export PATH="$HOME/software/vim/bin:$PATH"
-export LD_LIBRARY_PATH="/u/cd8rit/src/starccm/dev/compilers/linux-x86_64-2.10.1/gnu7.1.0/lib64:${LD_LIBRARY_PATH}"
+GCC_LIB=/u/cd8rit/src/starccm/dev/compilers/linux-x86_64-2.10.1/gnu7.1.0/lib64
+if [ -d "$GCC_LIB" -a -z "`echo ${LD_LIBRARY_PATH} | grep $GCC_LIB`" ] ; then
+  export LD_LIBRARY_PATH=$GCC_LIB:${LD_LIBRARY_PATH}
+fi
 
 #==============================================================================
 # GET LOCALIZATION VARIABLES FROM LOCALE.CONF IF IT EXISTS
@@ -120,9 +123,9 @@ export PATH="${NODE_HOME}/bin/:$PATH"
 #==============================================================================
 # Python2
 #==============================================================================
-export PYTHON2_HOME="$HOME/software/python/2.7.17"
-export PATH="${PYTHON2_HOME}/bin/:$PATH"
-export LD_LIBRARY_PATH="${PYTHON2_HOME}/lib:${LD_LIBRARY_PATH}"
+#export PYTHON2_HOME="$HOME/software/python/2.7.17"
+#export PATH="${PYTHON2_HOME}/bin/:$PATH"
+#export LD_LIBRARY_PATH="${PYTHON2_HOME}/lib:${LD_LIBRARY_PATH}"
 
 #==============================================================================
 # Python3
@@ -159,8 +162,16 @@ if [ -d "$MTSHOME" ] ; then
   alias mts=$MTSHOME/bin/mts
 fi
 
-
 #==============================================================================
 # NixOS
 #==============================================================================
-if [ -e /home/sava/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sava/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+#==============================================================================
+# git-lfs
+#==============================================================================
+GITLFSHOME="$HOME/software/git-lfs/bin"
+if [ -d "$GITLFSHOME" ] ; then
+  export PATH="${GITLFSHOME}:$PATH"
+fi
+
