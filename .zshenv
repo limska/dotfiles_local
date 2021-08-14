@@ -15,12 +15,20 @@ fi
 #==============================================================================
 # GIT
 #==============================================================================
-GITHOME="$HOME/software/git/2.28.0"
+GITHOME="$HOME/software/git/2.32.0"
 if [ -d "$GITHOME" ] ; then
   export PATH="$GITHOME/bin:$PATH"
   export MANPATH="$GITHOME/man:$MANPATH"
   export GIT_EXEC_PATH="$GITHOME/libexec/git-core"
   export GIT_TEMPLATE_DIR="$GITHOME/share/git-core/templates"
+fi
+
+#==============================================================================
+# GIT-FAT
+#==============================================================================
+GITFATHOME="$HOME/software/gitfat"
+if [ -d "$GITFATHOME" ] ; then
+  export PATH="$GITFATHOME/bin:$PATH"
 fi
 
 #==============================================================================
