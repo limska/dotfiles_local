@@ -1,5 +1,5 @@
 [user]
-	email = sava.slijepcevic@cd-adapco.com
+	email = sava.slijepcevic@cloudnc.com
 	name = Sava Slijepcevic
 # use colors to improve readability of git output
 [color]
@@ -58,24 +58,11 @@
 # trivial merge commits
 [branch "master"]
         rebase = true
-[branch "ServerConnection2"]
-        rebase = true
-[branch "CCMP-71972-Performance4"]
-        rebase = true
-[branch "morpher.cosim"]
-        rebase = true
-[branch "CCMP-73766-Icons"]
-        rebase = true
-[branch "gtpower"]
-        rebase = true
-[branch "GtPowerSpecies"]
-        rebase = true
 # display dates in local time zone
 [log]
         date = local
 
 [diff]
-#	external = /u/cd8rit/bin/git-diff-wrapper.sh
 	tool = vimdiff
 [pull]
 	rebase = true

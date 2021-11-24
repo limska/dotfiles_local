@@ -4,9 +4,9 @@ autocmd BufNewFile,BufReadPost *.h,*.cpp call CppSettings()
 
 function CppSettings()
     set makeprg=cmake_star\ -dev\ -dut\ -k
-    set shiftwidth=2
-    set tabstop=2
-    set softtabstop=2
+    set shiftwidth=4
+    set tabstop=4
+    set softtabstop=4
 endfunction
 
 autocmd BufNewFile,BufReadPost *.java call JavaSettings()
