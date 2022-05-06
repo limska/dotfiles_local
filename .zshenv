@@ -57,7 +57,7 @@ export PATH="$DEV_HOME/star/bin:$PATH"
 #==============================================================================
 # JAVA SETUP
 #==============================================================================
-export JAVA_HOME="/usr/bin/"
+#export JAVA_HOME="/usr/bin/"
 
 #==============================================================================
 # PATH ADDITIONS
@@ -84,41 +84,6 @@ fi
 export PATH="$HOME/software/vscode/code/bin:$PATH"
 
 #==============================================================================
-# AMESIM
-#==============================================================================
-export AME="/tpapps/AMESim/v17/Amesim/"
-export PATH="$AME:$PATH"
-export LMS_LICENSE=5053@soraya.london.cd-adapco.com
-export AMESIM_SERVER="localhost" # for startest
-
-#==============================================================================
-# GT-SUITE
-#==============================================================================
-export GTIVERBOSE=0
-export GTIHOME="/tpapps/gtpower/2017/"
-export PATH="$GTIHOME/bin:$PATH"
-export GTISOFT_LICENSE_FILE="27005@wallace.london.cd-adapco.com,27005@gromit.london.cd-adapco.com,27005@neo.london.cd-adapco.com"
-export GTPOWER_VERSION="2018"
-
-#==============================================================================
-# ABAQUS
-#==============================================================================
-export PATH="/tpapps/abaqus/2017/Commands:$PATH"
-
-#==============================================================================
-# GPROMS
-#==============================================================================
-export PSELMD_LICENSE_FILE="@soraya.london.cd-adapco.com"
-export PATH="/tpapps/gPROMS/ProcessBuilder_1.3.1.55087/bin":$PATH
-
-#==============================================================================
-# WAVE
-#==============================================================================
-export WAVE_HOME="/tpapps/WAVE/2017.1/"
-export PATH="$WAVE_HOME/bin/:$PATH"
-export PATH_TO_WAVE_LIBRARIES="$WAVE_HOME/2017.1/Common/Libs/lnx_x23.64" # for startest
-
-#==============================================================================
 # Ruby
 #==============================================================================
 export RUBY_HOME="$HOME/software/ruby/current"
@@ -131,63 +96,27 @@ export GOLANG_HOME="$HOME/software/go"
 export PATH="${GOLANG_HOME}/bin/:$PATH"
 
 #==============================================================================
-# NODE
+# Python poetry
 #==============================================================================
-export NODE_HOME="$HOME/software/node-v13.2.0-linux-x64"
-export PATH="${NODE_HOME}/bin/:$PATH"
-
-#==============================================================================
-# Python2
-#==============================================================================
-#export PYTHON2_HOME="$HOME/software/python/2.7.17"
-#export PATH="${PYTHON2_HOME}/bin/:$PATH"
-#export LD_LIBRARY_PATH="${PYTHON2_HOME}/lib:${LD_LIBRARY_PATH}"
-
-#==============================================================================
-# Python3
-#==============================================================================
-export PYTHON3_HOME="$HOME/software/python/3.7.5"
-export OPENSSL_HOME="$HOME/software/openssl/1.1.1d"
-export PATH="${PYTHON3_HOME}/bin:${OPENSSL_HOME}/bin:$PATH"
-export LD_LIBRARY_PATH="${PYTHON3_HOME}/lib:${OPENSSL_HOME}/lib:${LD_LIBRARY_PATH}"
-
-#==============================================================================
-# HDF5View
-#==============================================================================
-export HDF5VIEW_HOME="$HOME/software/HDFView-3.1.0-Linux/HDFView/3.1.0"
-export PATH="${HDF5VIEW_HOME}:$PATH"
-
-#==============================================================================
-# CGNSTools
-#==============================================================================
-export CGNSTOOLS_HOME="$HOME/software/CGNS-3.2.1"
-export PATH="${CGNSTOOLS_HOME}/bin:$PATH"
-
-#==============================================================================
-# Firefox
-#==============================================================================
-export FIREFOX_HOME="$HOME/software/firefox"
-export PATH="${FIREFOX_HOME}:$PATH"
-
-#==============================================================================
-# MTS
-#==============================================================================
-MTSHOME="$HOME/src/starccm/dev/mts/build/install/mts"
-if [ -d "$MTSHOME" ] ; then
-  JAVA_HOME=$HOME/src/starccm/dev/jdk/linux-x86_64/latest
-  alias mts=$MTSHOME/bin/mts
+POETRY_HOME=$HOME/.poetry
+if [ -d "${POETRY_HOME}" ] ; then
+  source ${POETRY_HOME}/env
 fi
 
 #==============================================================================
-# NixOS
+# .local/bin
 #==============================================================================
-#if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-#==============================================================================
-# git-lfs
-#==============================================================================
-GITLFSHOME="$HOME/software/git-lfs/bin"
-if [ -d "$GITLFSHOME" ] ; then
-  export PATH="${GITLFSHOME}:$PATH"
+LOCAL_BIN=$HOME/.local/bin
+if [ -d "${LOCAL_BIN}" ] ; then
+  export PATH="${LOCAL_BIN}:$PATH"
 fi
 
+
+#==============================================================================
+# Deno
+#==============================================================================
+DENO_INSTALL="/home/sava/.deno"
+if [ -d "${DENO_INSTALL}" ] ; then
+  export DENO_INSTALL
+  export PATH="$DENO_INSTALL/bin:$PATH"
+fi
