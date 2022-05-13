@@ -1,90 +1,19 @@
-[user]
-	email = sava.slijepcevic@cd-adapco.com
-	name = Sava Slijepcevic
-# use colors to improve readability of git output
-[color]
-        ui = true
-# alias commands to save typing
-[alias]
-        st = status
-        co = checkout
-        br = branch
-        ci = commit
-        di = diff
-        ca = commit -a
-        tree = log --oneline --decorate --graph
-        hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-# submit commits to be reviewed
-        review = !"f() { test -n \"$1\" && git push origin HEAD:review/$1 || git show origin/master:.gitreview ; }; f"
-# accept a review branch and commit to master
-        accept = !"f() { test -n \"$1\" && [ \"`git rev-parse --abbrev-ref HEAD`\" = \"master\" ] && git remote update && git pull && git merge origin/review/$1 && git push || echo usage: git accept reference ; }; f"
-# branch date
-        branchdate = for-each-ref --sort=-committerdate refs/heads/ --format="%(authordate:short)%09%(objectname:short)%09%1B[0;33m%(refname:short)%1B[m%09"
-        safe-merge = "!f() { test -n \"$1\" && ( to_merge=\"`git rev-parse HEAD`\" && git reset --hard \"$1\" && git merge --no-commit --no-log -m \"updating to $1\" $to_merge ) || echo usage: git safe-merge refname ; }; f"
-        md = difftool --dir-diff
-        mdstash = difftool --dir-diff stash@{0}^!
-        mdstash1 = difftool --dir-diff stash@{1}^!
-        mdstash2 = difftool --dir-diff stash@{2}^!
-        mdstash3 = difftool --dir-diff stash@{3}^!
-        mdstash4 = difftool --dir-diff stash@{4}^!
-        mdstash5 = difftool --dir-diff stash@{5}^!
-        mdstash6 = difftool --dir-diff stash@{6}^!
-        mdstash7 = difftool --dir-diff stash@{7}^!
-        mdstash8 = difftool --dir-diff stash@{8}^!
-        mdstash9 = difftool --dir-diff stash@{9}^!
-        mdstash10 = difftool --dir-diff stash@{10}^!
-        mdstash11 = difftool --dir-diff stash@{11}^!
-        mdstash12 = difftool --dir-diff stash@{12}^!
-        mdstash13 = difftool --dir-diff stash@{13}^!
-        mdstash14 = difftool --dir-diff stash@{14}^!
-        mdstash15 = difftool --dir-diff stash@{15}^!
-        mdstash16 = difftool --dir-diff stash@{16}^!
-        mdstash17 = difftool --dir-diff stash@{17}^!
-        mdstash18 = difftool --dir-diff stash@{18}^!
-        mdstash19 = difftool --dir-diff stash@{19}^!
-
-[core]
-        preloadindex = true
-	autocrlf = input
-# when merging two branches add brief summary 
-# of merged changes to the automatically generated merge commit
-[merge]
-        log = true
-	tool = vimdiff
-# when pushing push to tracking branch if one exist 
-[push]
-        default = tracking
-# always rebase on master branch to avoid polluting history with 
-# trivial merge commits
-[branch "master"]
-        rebase = true
-[branch "ServerConnection2"]
-        rebase = true
-[branch "CCMP-71972-Performance4"]
-        rebase = true
-[branch "morpher.cosim"]
-        rebase = true
-[branch "CCMP-73766-Icons"]
-        rebase = true
-[branch "gtpower"]
-        rebase = true
-[branch "GtPowerSpecies"]
-        rebase = true
-# display dates in local time zone
-[log]
-        date = local
-
-[diff]
-#	external = /u/cd8rit/bin/git-diff-wrapper.sh
-	tool = vimdiff
-[pull]
-	rebase = true
 [filter "lfs"]
+	process = git-lfs filter-process
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
-[http]
-	postBuffer = 1048576000
-[difftool]
-	prompt = false
+[user]
+	email = sava.slijepcevic@cloudnc.com
+	name = Sava Slijepčević
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    di = diff
+    ca = commit -a
+    tree = log --oneline --decorate --graph
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[pager]
+	branch = false
