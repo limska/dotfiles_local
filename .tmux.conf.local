@@ -16,9 +16,9 @@ set -g base-index 1
 setw -g monitor-activity on
 set -g visual-activity on
 
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
+#set -g mouse-resize-pane on
+#set -g mouse-select-pane on
+set -g mouse on
 
 # remap prefix from 'C-b' to 'C-a'
 unbind C-b
@@ -29,6 +29,7 @@ bind-key C-a send-prefix
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tpm-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 # Other examples:
 # set -g @plugin 'git@github.com/user/plugin'
