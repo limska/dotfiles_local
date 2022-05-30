@@ -120,3 +120,23 @@ if [ -d "${DENO_INSTALL}" ] ; then
   export DENO_INSTALL
   export PATH="$DENO_INSTALL/bin:$PATH"
 fi
+
+
+#==============================================================================
+# golang
+#==============================================================================
+GO_BIN=/usr/local/go/bin
+if [ -d "${GO_BIN}" ] ; then
+  export PATH="${GO_BIN}:$PATH"
+fi
+
+
+#==============================================================================
+# golang local
+#==============================================================================
+GO_LOCAL_BIN=$HOME/go/bin
+if [ -d "${GO_LOCAL_BIN}" ] ; then
+  export PATH="${GO_LOCAL_BIN}:$PATH"
+  JIRA_API_TOKEN=`cat $HOME/keys/jira.token`
+  export JIRA_API_TOKEN
+fi
