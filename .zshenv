@@ -1,58 +1,12 @@
 #! /bin/zsh
 
-#==============================================================================
-# DEFAULT APPS
-#==============================================================================
-export VISUAL="gvim"
+source $HOME/dotfiles/.zshrc
 
-#==============================================================================
-# MIRROR
-#==============================================================================
-if [ -d "$MIRROR_HOME" ] ; then
-  export MIRROR_HOME="/starmirror"
-fi
+export DISPLAY=:1.0
 
-#==============================================================================
-# GIT
-#==============================================================================
-GITHOME="$HOME/software/git/2.32.0"
-if [ -d "$GITHOME" ] ; then
-  export PATH="$GITHOME/bin:$PATH"
-  export MANPATH="$GITHOME/man:$MANPATH"
-  export GIT_EXEC_PATH="$GITHOME/libexec/git-core"
-  export GIT_TEMPLATE_DIR="$GITHOME/share/git-core/templates"
-fi
+alias -g '¬O'="xdg-open"
 
-#==============================================================================
-# GIT-FAT
-#==============================================================================
-GITFATHOME="$HOME/software/gitfat"
-if [ -d "$GITFATHOME" ] ; then
-  export PATH="$GITFATHOME/bin:$PATH"
-fi
-
-#==============================================================================
-# GDB
-#==============================================================================
-GDBHOME="$HOME/software/gdb/10.2"
-if [ -d "$GDBHOME" ] ; then
-  export PATH="$GDBHOME/bin:$PATH"
-fi
-
-#==============================================================================
-# CMake
-#==============================================================================
-CMAKEHOME="$HOME/software/cmake"
-if [ -d "$CMAKEHOME" ] ; then
-  export PATH="$CMAKEHOME/bin:$PATH"
-  export MANPATH="$CMAKEHOME/man:$MANPATH"
-fi
-
-#==============================================================================
-# DEV
-#==============================================================================
-export DEV_HOME="$HOME/src/starccm/dev"
-export PATH="$DEV_HOME/star/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #==============================================================================
 # JAVA SETUP
@@ -67,16 +21,25 @@ export PATH="/opt/google/chrome:$PATH"
 #==============================================================================
 # VIM
 #==============================================================================
-export PATH="$HOME/software/vim/bin:$PATH"
-GCC_LIB=/u/cd8rit/src/starccm/dev/compilers/linux-x86_64-2.10.1/gnu7.1.0/lib64
-if [ -d "$GCC_LIB" -a -z "`echo ${LD_LIBRARY_PATH} | grep $GCC_LIB`" ] ; then
-  export LD_LIBRARY_PATH=$GCC_LIB:${LD_LIBRARY_PATH}
-fi
+export VISUAL="gvim"
 
 #==============================================================================
 # GET LOCALIZATION VARIABLES FROM LOCALE.CONF IF IT EXISTS
 #==============================================================================
 [[ -f /etc/locale.conf ]] && source /etc/locale.conf
+
+#==============================================================================
+# Angular - NVM
+#==============================================================================
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#==============================================================================
+# Angular - Yarn
+#==============================================================================
+YARN_DIR="${HOME}/.yarn"
+[[ -d "${YARN_DIR}/bin" ]] && PATH="${PATH}:${YARN_DIR}/bin"
 
 #==============================================================================
 # VSCode
@@ -110,7 +73,6 @@ LOCAL_BIN=$HOME/.local/bin
 if [ -d "${LOCAL_BIN}" ] ; then
   export PATH="${LOCAL_BIN}:$PATH"
 fi
-
 
 #==============================================================================
 # Deno
