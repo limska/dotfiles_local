@@ -17,6 +17,7 @@ alias -g '¬O'="xdg-open"
 # PATH ADDITIONS
 #==============================================================================
 export PATH="/opt/google/chrome:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 #==============================================================================
 # VIM
@@ -53,10 +54,22 @@ export RUBY_HOME="$HOME/software/ruby/current"
 export PATH="${RUBY_HOME}/bin/:$PATH"
 
 #==============================================================================
-# GOLANG
+# GOLANG home
 #==============================================================================
-export GOLANG_HOME="$HOME/software/go"
-export PATH="${GOLANG_HOME}/bin/:$PATH"
+GOLANG_HOME1="$HOME/software/go"
+if [ -d "${GOLANG_HOME1}" ] ; then
+  export GOLANG_HOME=${GOLANG_HOME1}
+  export PATH="${GOLANG_HOME}/bin/:$PATH"
+fi
+
+#==============================================================================
+# GOLANG local
+#==============================================================================
+GOLANG_HOME2="/usr/local/go"
+if [ -d "${GOLANG_HOME2}" ] ; then
+  export GOLANG_HOME=${GOLANG_HOME2}
+  export PATH="${GOLANG_HOME}/bin/:$PATH"
+fi
 
 #==============================================================================
 # Python poetry
@@ -90,6 +103,15 @@ fi
 GO_BIN=/usr/local/go/bin
 if [ -d "${GO_BIN}" ] ; then
   export PATH="${GO_BIN}:$PATH"
+fi
+
+
+#==============================================================================
+# CMake
+#==============================================================================
+CMAKE_BIN=$HOME/software/cmake-3.24.1-linux-x86_64/bin
+if [ -d "${CMAKE_BIN}" ] ; then
+  export PATH="${CMAKE_BIN}:$PATH"
 fi
 
 
