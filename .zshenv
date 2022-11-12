@@ -1,7 +1,5 @@
 #! /bin/zsh
 
-source $HOME/dotfiles/.zshrc
-
 export DISPLAY=:1.0
 
 alias -g '¬O'="xdg-open"
