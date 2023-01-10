@@ -122,3 +122,14 @@ if [ -d "${GO_LOCAL_BIN}" ] ; then
   JIRA_API_TOKEN=`cat $HOME/keys/jira.token`
   export JIRA_API_TOKEN
 fi
+
+
+#==============================================================================
+# Gradle
+#==============================================================================
+GRADLE_BIN=/opt/gradle/gradle-7.5.1/bin
+if [ -d "${GRADLE_BIN}" ] ; then
+  export PATH="${GRADLE_BIN}:$PATH"
+fi
+
+
