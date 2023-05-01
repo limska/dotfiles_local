@@ -13,7 +13,7 @@ xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 xset r rate 250 40
 
-#include "/home/sava/src/xresources/Xresources.dark"
+#include "/home/sava/dotfiles_local/Xresources.dracula"
 
 ! DOS-box colours...
 ! xterm*foreground: rgb:a8/a8/a8
