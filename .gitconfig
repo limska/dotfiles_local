@@ -1,6 +1,6 @@
 [user]
-        email = sava.slijepcevic@cloudnc.com
-        name = Sava Slijepcevic
+	email = sava.slijepcevic@cloudnc.com
+	name = Sava Slijepčević
 # use colors to improve readability of git output
 [color]
         ui = true
@@ -73,3 +73,5 @@
         smudge = git-lfs smudge -- %f
 [pager]
         branch = false
+[init]
+	defaultBranch = master
