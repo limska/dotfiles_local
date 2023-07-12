@@ -1,5 +1,5 @@
 # Improve colors
-set -g default-terminal 'screen-256color'
+#set -g default-terminal 'screen-256color'
 
 # Set scrollback buffer to 10000
 set -g history-limit 10000
@@ -7,10 +7,23 @@ set -g history-limit 10000
 # Customize the status line
 set -g status-fg  green
 set -g status-bg  black
-
 set -g status-right "#[fg=green]#(uptime | cut -d , -f 4-)"
 
+# Navigate keys in scrollback
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# Fix window and pane index
 set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+set-option -g renumber-windows on
+
+# Open panes in current directory
+bind '"' split-window -v -c "#{pane_current_path}"
+bind  %  split-window -h -c "#{pane_current_path}"
 
 # Activity monitoring
 setw -g monitor-activity on
@@ -21,16 +34,25 @@ set -g visual-activity on
 #set -g mouse-select-window on
 setw -g mouse
 
-# remap prefix from 'C-b' to 'C-a'
+# remap prefix from 'C-b' to 'C-Space'
 unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
+set-option -g prefix C-Space
+bind-key C-Space send-prefix
+
+# Fix colours
+set-option -sa terminal-overrides ",xterm*:Tc"
+
+# Navigate windows
+bind -n M-H previous-window
+bind -n M-L next-window
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tpm-yank'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'catppuccin/tmux'
 
 # Other examples:
 # set -g @plugin 'git@github.com/user/plugin'
