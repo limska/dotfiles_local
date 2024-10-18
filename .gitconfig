@@ -54,6 +54,7 @@
 # when pushing push to tracking branch if one exist 
 [push]
         default = tracking
+	followTags = true
 # always rebase on master branch to avoid polluting history with 
 # trivial merge commits
 [branch "master"]

@@ -1,4 +1,4 @@
-#! /bin/zsh
+
 
 export DISPLAY=:1.0
 
@@ -13,8 +13,21 @@ alias -g '¬O'="xdg-open"
 
 #==============================================================================
 # PATH ADDITIONS
+#=============================================================================
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+
 #==============================================================================
-export PATH="$HOME/bin:$PATH"
+MODULES_HOME=/usr/share/modules
+if [ -d "${MODULES_HOME}" ] ; then
+  export MODULESHOME=${MODULES_HOME}
+fi
+MODULES_REPO=$HOME/modulefiles
+if [ -d "${MODULES_REPO}" ] ; then
+ export MODULESREPO=${MODULES_REPO}
+ export MODULEPATH=$MODULESREPO
+ source $MODULESHOME/init/zsh
+fi
 
 #==============================================================================
 # VIM
@@ -42,13 +55,28 @@ YARN_DIR="${HOME}/.yarn"
 #==============================================================================
 # VSCode
 #==============================================================================
-export PATH="$HOME/software/vscode/code/bin:$PATH"
+VSCODE_HOME="$HOME/software/vscode/code"
+if [ -d "${VSCODE_HOME}" ] ; then
+  export PATH="${VSCODE_HOME}/bin:$PATH"
+fi
+
+#==============================================================================
+# Gradle
+#==============================================================================
+GRADLE_VERSION=8.6
+GRADLE_HOME="$HOME/software/gradle/gradle-${GRADLE_VERSION}"
+if [ -d "${GRADLE_HOME}" ] ; then
+  export PATH="${GRADLE_HOME}/bin:$PATH"
+fi
 
 #==============================================================================
 # Ruby
 #==============================================================================
-export RUBY_HOME="$HOME/software/ruby/current"
-export PATH="${RUBY_HOME}/bin/:$PATH"
+RUBY_HOME="$HOME/software/ruby/current"
+if [ -d "${RUBY_HOME}" ] ; then
+  export RUBY_HOME
+  export PATH="${RUBY_HOME}/bin/:$PATH"
+fi
 
 #==============================================================================
 # GOLANG home
@@ -106,10 +134,10 @@ fi
 #==============================================================================
 # CMake
 #==============================================================================
-CMAKE_BIN=$HOME/software/cmake-3.24.1-linux-x86_64/bin
-if [ -d "${CMAKE_BIN}" ] ; then
-  export PATH="${CMAKE_BIN}:$PATH"
-fi
+#CMAKE_BIN=$HOME/software/cmake-3.24.1-linux-x86_64/bin
+#if [ -d "${CMAKE_BIN}" ] ; then
+#  export PATH="${CMAKE_BIN}:$PATH"
+#fi
 
 
 #==============================================================================
@@ -133,16 +161,48 @@ fi
 
 
 #==============================================================================
+# Dotnet
+#==============================================================================
+DOTNET_HOME=$HOME/.dotnet
+if [ -d "${DOTNET_HOME}" ] ; then
+  export PATH="${DOTNET_HOME}:$PATH"
+fi
+
+
+#==============================================================================
 # Rust cargo
 #==============================================================================
 CARGO_ENV="$HOME/.cargo/env"
 if [ -f "${CARGO_ENV}" ] ; then
   . "${CARGO_ENV}"
 fi
-. "$HOME/.cargo/env"
+
+
+#==============================================================================
+# rnv
+#==============================================================================
+RNV_DIR=$HOME/software/rnv
+if [ -d "${RNV_DIR}" ] ; then
+  export PATH="${RNV_DIR}:$PATH"
+fi
 
 
 #==============================================================================
 # Pager
 #==============================================================================
 export PAGER=cat
+
+#==============================================================================
+# NAG
+#==============================================================================
+export ENGINEHOME=$HOME/repos/nag/naglib
+export SHOW_DEP_PROGRESS=0
+
+#==============================================================================
+# Flatpak
+#==============================================================================
+FLATPACK_SHARE=/var/lib/flatpak/exports/share
+if [ -d "${FLATPACK_SHARE}" ] ; then
+  export XDG_DATA_DIRS=${XDG_DATA_DIRS}:${FLATPACK_SHARE}
+fi 
+
