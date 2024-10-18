@@ -76,3 +76,6 @@
         branch = false
 [init]
 	defaultBranch = master
+[safe]
+	directory = /Users/*
+	directory = *
