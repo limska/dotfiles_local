@@ -1,6 +1,6 @@
 
 
-export DISPLAY=:1.0
+export DISPLAY=:0.0
 
 alias -g '¬O'="xdg-open"
 
@@ -102,6 +102,16 @@ fi
 POETRY_HOME=$HOME/.poetry
 if [ -d "${POETRY_HOME}" ] ; then
   source ${POETRY_HOME}/env
+fi
+
+#==============================================================================
+# Python pyenv
+#==============================================================================
+PYENV_HOME=$HOME/.pyenv
+if [ -d "${PYENV_HOME}" ] ; then
+  export PATH="${PYENV_HOME}/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"	
 fi
 
 #==============================================================================
@@ -224,3 +234,6 @@ if [ -d "${FLATPACK_SHARE}" ] ; then
   export XDG_DATA_DIRS=${XDG_DATA_DIRS}:${FLATPACK_SHARE}
 fi 
 
+. "$HOME/.cargo/env"
+
+fpath+=${ZDOTDIR:-~}/.zsh_functions
