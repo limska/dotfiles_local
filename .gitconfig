@@ -46,6 +46,7 @@
 [core]
         preloadindex = true
         autocrlf = input
+	editor = nvim -f
 # when merging two branches add brief summary 
 # of merged changes to the automatically generated merge commit
 [merge]

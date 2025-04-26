@@ -1,7 +1,4 @@
 
-
-export DISPLAY=:0.0
-
 alias -g '¬O'="xdg-open"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -82,9 +79,13 @@ fi
 # GOLANG home
 #==============================================================================
 GOLANG_HOME1="$HOME/software/go"
+GOLANG_HOME2="/usr/local/go"
 if [ -d "${GOLANG_HOME1}" ] ; then
   export GOLANG_HOME=${GOLANG_HOME1}
-  export PATH="${GOLANG_HOME}/bin/:$PATH"
+  export PATH="${GOLANG_HOME}/bin:$PATH"
+elif [ -d "${GOLANG_HOME2}" ] ; then
+  export GOLANG_HOME=${GOLANG_HOME2}
+  export PATH="${GOLANG_HOME}/bin:$PATH"
 fi
 
 #==============================================================================
@@ -194,6 +195,14 @@ fi
 DOTNET_HOME=$HOME/.dotnet
 if [ -d "${DOTNET_HOME}" ] ; then
   export PATH="${DOTNET_HOME}:$PATH"
+fi
+
+#==============================================================================
+# Zig
+#==============================================================================
+ZIG_BIN=$HOME/software/zig
+if [ -d "${ZIG_BIN}" ] ; then
+  export PATH="${ZIG_BIN}:$PATH"
 fi
 
 
