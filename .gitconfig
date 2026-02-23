@@ -65,7 +65,7 @@
         date = local
 
 [diff]
-        tool = vimdiff
+        tool = icdiff
 [pull]
         rebase = true
 [filter "lfs"]
@@ -76,7 +76,7 @@
 [pager]
         branch = false
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [safe]
 	directory = /Users/*
 	directory = *

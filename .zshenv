@@ -157,7 +157,7 @@ fi
 #==============================================================================
 # nvim
 #==============================================================================
-NVIM_BIN=$HOME/software/nvim-macos-arm64/bin
+NVIM_BIN=$HOME/software/nvim-linux-x86_64/bin
 if [ -d "${NVIM_BIN}" ]; then
   export PATH="${NVIM_BIN}:$PATH"
 fi
@@ -243,13 +243,19 @@ elif [ -d "${APPTAINER_HOME}/usr/bin" ]; then
   export PATH="${APPTAINER_HOME}/usr/bin:$PATH"
   export APPTAINER_TMPDIR=$HOME/temp
 fi
+export BASH=/bin/bash
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-export FREECAD_LIBPATH=/home/sava/software/freecad_100/usr/lib/FreeCAD.so
+export FREECAD_LIBPATH=/home/sava/software/freecad_102/usr/lib/FreeCAD.so
+export PATH_TO_FREECAD_LIBDIR=/home/sava/software/freecad_102/usr/lib/FreeCAD.so
 
-export GMSH_LIBPATH=/home/sava/public/gmsh-4.10.5-Linux64-sdk/lib/gmsh.py
+export GMSH_LIBPATH=/home/sava/public/gmsh-4.14.0-Linux64-sdk/lib/gmsh.py
 
 export KUBECONFIG=~/.kube/config
+
+export KERNEL_IO_LICENSE="3djuump%0632103e0bro086o16ur086o0gkh0af20a9p0a9p13ek16lb0l7w0f6h0sv6111i0o6v0ijc0f6h0r3h1apq0f6h0f6h0f6h0l7w"
+export KIOSAMPLE_LICENSE_2025=${KERNEL_IO_LICENSE}
+
 
 . "$HOME/.cargo/env"
