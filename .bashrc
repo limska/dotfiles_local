@@ -215,11 +215,15 @@ elif [ -d "${APPTAINER_HOME}/usr/bin" ]; then
   export APPTAINER_TMPDIR=$HOME/temp
 fi
 
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
 # export FREECAD_LIBPATH=/home/sava/software/freecad_100/usr/lib/FreeCAD.so
 
 # export GMSH_LIBPATH=/home/sava/public/gmsh-4.10.5-Linux64-sdk/lib/gmsh.py
 
 # export KUBECONFIG=~/.kube/config
 
+. "$HOME/.cargo/env"
+
+#==============================================================================
+# Starship
+#==============================================================================
+eval "$(starship init bash)"
