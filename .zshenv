@@ -1,4 +1,4 @@
-export DISPLAY=:0.0
+export DISPLAY=:1.0
 
 alias -g '¬O'="xdg-open"
 
@@ -10,7 +10,7 @@ alias -g '¬O'="xdg-open"
 #==============================================================================
 # PATH ADDITIONS
 #=============================================================================
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 #==============================================================================
 MODULES_HOME=/usr/share/modules
@@ -81,26 +81,13 @@ GOLANG_HOME2="/usr/local/go"
 if [ -d "${GOLANG_HOME1}" ]; then
   export GOLANG_HOME=${GOLANG_HOME1}
   export PATH="${GOLANG_HOME}/bin:$PATH"
+  JIRA_API_TOKEN=$(cat $HOME/keys/jira.token)
+  export JIRA_API_TOKEN
 elif [ -d "${GOLANG_HOME2}" ] ; then
   export GOLANG_HOME=${GOLANG_HOME2}
   export PATH="${GOLANG_HOME}/bin:$PATH"
-fi
-
-#==============================================================================
-# GOLANG local
-#==============================================================================
-GOLANG_HOME2="/usr/local/go"
-if [ -d "${GOLANG_HOME2}" ]; then
-  export GOLANG_HOME=${GOLANG_HOME2}
-  export PATH="${GOLANG_HOME}/bin/:$PATH"
-fi
-
-#==============================================================================
-# Python poetry
-#==============================================================================
-POETRY_HOME=$HOME/.poetry
-if [ -d "${POETRY_HOME}" ]; then
-  source ${POETRY_HOME}/env
+  JIRA_API_TOKEN=$(cat $HOME/keys/jira.token)
+  export JIRA_API_TOKEN
 fi
 
 #==============================================================================
@@ -131,61 +118,11 @@ if [ -d "${DENO_INSTALL}" ]; then
 fi
 
 #==============================================================================
-# golang
-#==============================================================================
-GO_BIN=/usr/local/go/bin
-if [ -d "${GO_BIN}" ]; then
-  export PATH="${GO_BIN}:$PATH"
-fi
-
-#==============================================================================
-# CMake
-#==============================================================================
-#CMAKE_BIN=$HOME/software/cmake-3.24.1-linux-x86_64/bin
-#if [ -d "${CMAKE_BIN}" ] ; then
-#  export PATH="${CMAKE_BIN}:$PATH"
-#fi
-
-#==============================================================================
-# git-lfs
-#==============================================================================
-GIT_LFS_BIN=$HOME/software/git-lfs-3.5.1/darwin-arm64/bin
-if [ -d "${GIT_LFS_BIN}" ]; then
-  export PATH="${GIT_LFS_BIN}:$PATH"
-fi
-
-#==============================================================================
 # nvim
 #==============================================================================
 NVIM_BIN=$HOME/software/nvim-linux-x86_64/bin
 if [ -d "${NVIM_BIN}" ]; then
   export PATH="${NVIM_BIN}:$PATH"
-fi
-
-#==============================================================================
-# golang local
-#==============================================================================
-GO_LOCAL_BIN=$HOME/go/bin
-if [ -d "${GO_LOCAL_BIN}" ]; then
-  export PATH="${GO_LOCAL_BIN}:$PATH"
-  JIRA_API_TOKEN=$(cat $HOME/keys/jira.token)
-  export JIRA_API_TOKEN
-fi
-
-#==============================================================================
-# Gradle
-#==============================================================================
-GRADLE_BIN=/opt/gradle/gradle-7.5.1/bin
-if [ -d "${GRADLE_BIN}" ]; then
-  export PATH="${GRADLE_BIN}:$PATH"
-fi
-
-#==============================================================================
-# Dotnet
-#==============================================================================
-DOTNET_HOME=$HOME/.dotnet
-if [ -d "${DOTNET_HOME}" ]; then
-  export PATH="${DOTNET_HOME}:$PATH"
 fi
 
 #==============================================================================
@@ -257,5 +194,3 @@ export KUBECONFIG=~/.kube/config
 export KERNEL_IO_LICENSE="3djuump%0632103e0bro086o16ur086o0gkh0af20a9p0a9p13ek16lb0l7w0f6h0sv6111i0o6v0ijc0f6h0r3h1apq0f6h0f6h0f6h0l7w"
 export KIOSAMPLE_LICENSE_2025=${KERNEL_IO_LICENSE}
 
-
-. "$HOME/.cargo/env"
